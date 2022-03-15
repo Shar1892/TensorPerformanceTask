@@ -26,9 +26,9 @@ function addContacts() {
 contacts.addEventListener('scroll', (e) => {
 	const items = Array.from(contacts.getElementsByClassName('contact'));
 	let topContactsList = contacts.scrollTop;
-	const topItemIndex = items.findIndex((item, index) => {
-		return topContactsList - index * 18 <= 0;
-	});
+	const topItemIndex = items.findIndex(
+		(item, index) => topContactsList - index * 18 <= 0
+	);
 	if (topItemIndex !== -1) {
 		stickyHeader.textContent = items[topItemIndex].textContent;
 	}
