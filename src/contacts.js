@@ -5,8 +5,9 @@ function addContacts() {
 	const fragment = document.createDocumentFragment();
 	for (let i = 0; i < 50000; i++) {
 		const child = document.createElement('div');
-		child.textContent = i;
 		child.classList.add('contact');
+		child.textContent = i;
+		//child.classList.add('contact');
 		fragment.appendChild(child);
 	}
 	contacts.appendChild(fragment);
@@ -26,9 +27,8 @@ function addContacts() {
 contacts.addEventListener('scroll', (e) => {
 	const items = Array.from(contacts.getElementsByClassName('contact'));
 	let topContactsList = contacts.scrollTop;
-	const topItemIndex = items.findIndex(
-		(item, index) => topContactsList - index * 18 <= 0
-	);
+	let itemOffset = items[0].offsetTop;
+	const topItemIndex = Math.floor(topContactsList / itemOffset);
 	if (topItemIndex !== -1) {
 		stickyHeader.textContent = items[topItemIndex].textContent;
 	}
