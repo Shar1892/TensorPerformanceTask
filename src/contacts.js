@@ -34,4 +34,4 @@ contacts.addEventListener('scroll', (e) => {
 addContacts();
 
 const items = Array.from(contacts.getElementsByClassName('contact'));
-const itemOffset = items[0].offsetTop;
+const itemOffset = items[0].offsetHeight;
